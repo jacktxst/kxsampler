@@ -15,9 +15,9 @@ document.getElementById("btn-newsample")
 			<button id="btn-closedialog">X</button>
 		</div>
 		<div class="dialog-options">
-			<button>record</button>
+			<button><s>record</s></button>
 			<button id="btn-import-sample">import</button>
-			<button>generate</button>
+			<button><s>generate</s></button>
 		</div>
 	`
         document.body.appendChild(bg_div)
