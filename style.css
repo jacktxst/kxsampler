@@ -1,0 +1,75 @@
+* {
+	font-size: 16px;
+	font-family: sans-serif;
+	user-select: none;
+	-webkit-user-select: none;
+}
+html, body {
+	touch-action: none;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
+	overscroll-behavior: none;
+}
+div {
+	touch-action: none;
+}
+input, textarea {
+	user-select: text;
+	-webkit-user-select: text;
+}
+button {
+	padding: 8px;
+	background-color: #00000000;
+}
+#bg-div {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.dialog-box {
+	position: fixed;
+	background-color: #ffffff;
+	outline: 1px solid black;
+	top: calc( (100vh - 250px)*0.5  );
+	left: calc( (100vw - 250px)*0.5 );
+	width: 250px;
+	height: 250px;
+	margin: auto;
+}
+.horiz-scrollbox {
+	display: flex;
+	padding: 0px;
+	overflow: auto;
+}
+.adsr-canvas {
+	touch-action: none;
+}
+.sampler-pad {
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+canvas {
+	touch-action: none;
+	margin: 0;
+}
+.dialog-options {
+	display: flex;
+	flex-direction: column;
+}
+.section-header {
+	padding: 4px;
+	outline: 1px solid black;
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	justify-content: space-between;
+}

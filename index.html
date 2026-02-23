@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en_US">
+<head>
+<title>kxsampler</title>
+<link rel="stylesheet" href="style.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+	<div id="topbar">
+		<button id=“btn_undo”>UNDO</button>
+		<button id=“btn_redo”>REDO</button>
+		<button id=“btn_settings”>⚙</button>
+	</div>
+
+	<div id="samples_pane">
+		<div class="section-header">
+			<div><!-- spacing --></div>
+			<div style="align-content: center">SAMPLES</div>
+			<div>
+				<button id="btn-newsample">+</button>
+				<button id="btn-delsample">-</button>
+			</div>
+		</div>
+		<div id="samples-list" class="horiz-scrollbox"></div>
+		<div id="current-sample"></div>
+
+	</div>
+
+	<div id="samplers_pane">
+		<div class="section-header">
+			<div><!-- flex spacing --></div>
+			<div style="align-content: center">SAMPLE VOICES</div>
+			<div>
+				<button id="btn-newsampler">+</button>
+				<button id="btn-delsampler">-</button>
+			</div>
+		</div>
+		<div id="samplers-list" class="horiz-scrollbox"></div>
+	</div>
+
+	<div id="inspector_pane">
+		<div class="section-header">
+			<div><!-- flex spacing --></div>
+			<div style="align-content: center">EDIT</div>
+			<div>
+				<button>DRAG</button>
+			</div>
+		</div>
+		<div id="inspector">
+			<!-- inspector menu dynamically placed here -->
+		</div>
+	</div>
+
+	<script src="samplebuffers.js"></script>
+	<script src="adsr_graph.js"></script>
+	<script src="sampler.js"></script>
+	<script src="waveform.js"></script>
+	<script src="main.js"></script>
+
+</body>
+</html>
