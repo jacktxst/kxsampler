@@ -32,16 +32,16 @@ window.addEventListener('keydown', (event) => {
 
 
 class Sampler {
-    constructor() {
+    constructor(params) {
         AppState.samplers.push(this);
 
-        this.sampleId = 0;
-        this.startOffset = 0;
-        this.attack_ms = 5;
-        this.decay_ms = 50;
-        this.sustain_vol = 0;
-        this.speed = 1;
-        this.release_ms = 15;
+        this.sampleId    = params?.sampleId || 0;
+        this.startOffset = params?.startOffset || 0;
+        this.attack_ms   = params?.attack_ms || 5;
+        this.decay_ms    = params?.decay_ms || 50;
+        this.sustain_vol = params?.sustain_vol || 0;
+        this.speed       = params?.speed || 1;
+        this.release_ms  = params?.release_ms || 15;
 
         this.source = null;
         this.graphLength = 300;
@@ -259,6 +259,72 @@ class SamplerInspectorGui {
     }
 }
 
+function refreshSamplersList() {
+
+    let list = document.getElementById("samplers-list")
+
+    for (let child of list.children) {
+        list.removeChild(child)
+    }
+
+    for (let sampler of AppState.samplers) {
+        list.appendChild(sampler.div);
+    }
+
+}
+
+
+ /* NEEDS IMPL */
+document.getElementById("btn-moveleft-sampler")
+.addEventListener("pointerdown", (e) => {
+
+    e.preventDefault()
+
+    if (AppState.selection_type === "sampler") {
+
+        let s = AppState.selection;
+
+        let idx = AppState.samplers.indexOf(s)
+
+        AppState.samplers.splice(idx, 1)
+        AppState.samplers.splice(idx - 1, 0, s)
+        refreshSamplersList()
+    }
+
+}, {passive: false})
+
+ /* NEEDS IMPL */
+document.getElementById("btn-moveright-sampler")
+.addEventListener("pointerdown", (e) => {
+
+    e.preventDefault()
+
+    if (AppState.selection_type === "sampler") {
+
+        let s = AppState.selection;
+
+        let idx = AppState.samplers.indexOf(s)
+
+        AppState.samplers.splice(idx, 1)
+        AppState.samplers.splice(idx + 1, 0, s)
+        refreshSamplersList()
+    }
+
+}, {passive: false})
+
+
+
+
+document.getElementById("btn-clonesampler")
+.addEventListener("pointerdown", (e) => {
+
+    e.preventDefault()
+
+    if (AppState.selection_type === "sampler") {
+        let copy = new Sampler(AppState.selection);
+    }
+
+}, {passive: false})
 
 document.getElementById("btn-delsampler")
 .addEventListener("pointerdown", (e) => {
