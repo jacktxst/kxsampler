@@ -1,3 +1,5 @@
+/* keyboard functionality
+
 const keysDown = new Set();
 
 window.addEventListener('keydown', (event) => {
@@ -15,20 +17,19 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
+window.addEventListener('keyup', (event) => {
+    keysDown.delete(event.key);
+// event.key will be '0', '1', ..., '9'
+const key = event.key;
+if (key >= '0' && key <= '9') {
+    const index = parseInt(key, 10); // convert string to number
+    if (AppState.samplers[index-1]) {
+        AppState.samplers[index-1].release();
+    }
+}
+});
 
-
-
-        window.addEventListener('keyup', (event) => {
-            keysDown.delete(event.key);
-        // event.key will be '0', '1', ..., '9'
-        const key = event.key;
-        if (key >= '0' && key <= '9') {
-            const index = parseInt(key, 10); // convert string to number
-            if (AppState.samplers[index-1]) {
-                AppState.samplers[index-1].release();
-            }
-        }
-        });
+*/
 
 
 class Sampler {
@@ -283,12 +284,11 @@ document.getElementById("btn-moveleft-sampler")
     if (AppState.selection_type === "sampler") {
 
         let s = AppState.selection;
-
         let idx = AppState.samplers.indexOf(s)
-
         AppState.samplers.splice(idx, 1)
         AppState.samplers.splice(idx - 1, 0, s)
         refreshSamplersList()
+    
     }
 
 }, {passive: false})
@@ -302,12 +302,11 @@ document.getElementById("btn-moveright-sampler")
     if (AppState.selection_type === "sampler") {
 
         let s = AppState.selection;
-
         let idx = AppState.samplers.indexOf(s)
-
         AppState.samplers.splice(idx, 1)
         AppState.samplers.splice(idx + 1, 0, s)
         refreshSamplersList()
+    
     }
 
 }, {passive: false})

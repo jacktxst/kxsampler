@@ -1,8 +1,8 @@
-allow rearranging of the samplers
-two little buttons in the corner of the pad
-allow
+- rearranging samplers does strange things
 
+- samplers can be triggered multiple times
 
+- samplers get triggered when typing in a number even into an input
 
 - if you leave the tab on safari mobile, not only does the audio stop, but the audio engine
 will be perma silent after that
